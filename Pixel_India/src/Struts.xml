@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+	 
+	   <action name="index" class="com.pixelindia.action.IndexAction">
+			<result name="INDEX">/Index.jsp</result>
+		</action>
+	   <action name="registrationinput" class="com.pixelindia.action.RegistrationAction" method="regPageDisplay">
+			<result name="REGISTRATIONPAGEVIEW">/RegisterP.jsp</result>
+		</action>
+				
+		<action name="registration" class="com.pixelindia.action.RegistrationAction" method="addPhotographerRecord">
+			<result name="REGREPLY">/RegisterP.jsp</result>
+			<result name="input">/RegisterP.jsp</result>
+		</action>
+		<action name="logininput" class="com.pixelindia.action.LoginLogoutAction" method="loginPageDisplay">
+			<result name="LOGINPAGEVIEW">/Signin.jsp</result>
+		</action>
+		
+		<action name="loginuser" class="com.pixelindia.action.LoginLogoutAction" method="userLoginCheck">
+			<result name="SUCCESS">/AfterSigninUser.jsp</result>
+			<result name="INVALID">/Signin.jsp</result>
+			<result name="input">/Signin.jsp</result>
+		</action>
+		
+		<action name="logoutuser" class="com.pixelindia.action.LoginLogoutAction" method="logout">
+			<result name="HOME">/Index.jsp</result>
+		</action>
+		<action name="adminlogininput" class="com.pixelindia.action.AdminLoginLogoutAction" method="adminLoginPageDisplay">
+			<result name="ADMINLOGINPAGEVIEW">/AdminLogin.jsp</result>
+		</action>
+		
+		<action name="adminlogin" class="com.pixelindia.action.AdminLoginLogoutAction" method="adminLoginCheck">
+			<result name="SUCCESS">/AdminAfterLogin.jsp</result>
+			<result name="INVALID">/AdminLogin.jsp</result>
+			<result name="input">/AdminLogin.jsp</result>
+		</action>
+		
+	 	<action name="adminlogout" class="com.pixelindia.action.AdminLoginLogoutAction" method="adminLogout">
+			<result name="ADMINLOGIN">/AdminLogin.jsp</result>
+		</action>
+		
+		<action name="adminhome" class="com.pixelindia.action.AdminHomeAction">
+			<result name="SUCCESS">/AdminAfterLogin.jsp</result>
+		</action>
+		 
+		<action name="userhome" class="com.pixelindia.action.PhotographerHomeAction">
+			<result name="SUCCESS">/AfterSigninUser.jsp</result>
+		</action>
+		 <action name="registrationinputclient" class="com.pixelindia.action.RegisterClientAction" method="regPageDisplay">
+			<result name="REGISTRATIONPAGEVIEW">/RegisterClient.jsp</result>
+		</action>
+				
+		<action name="registrationclient" class="com.pixelindia.action.RegisterClientAction" method="addClientRecord">
+			<result name="REGREPLY">/RegisterClient.jsp</result>
+			<result name="input">/RegisterClient.jsp</result>
+		</action>
+		
+		<action name="logininputclient" class="com.pixelindia.action.LoginLogoutClientAction" method="loginPageDisplay">
+			<result name="LOGINPAGEVIEW">/SigninClient.jsp</result>
+		</action>
+		
+		<action name="loginclient" class="com.pixelindia.action.LoginLogoutClientAction" method="ClientLoginCheck">
+			<result name="SUCCESS">/AfterSigninClient.jsp</result>
+			<result name="INVALID">/SigninClient.jsp</result>
+			<result name="input">/SigninClient.jsp</result>
+		</action>
+		<action name="logoutclient" class="com.pixelindia.action.LoginLogoutClientAction" method="logout">
+			<result name="HOME">/Index.jsp</result>
+		</action>	
+		  <action name="messageinput" class="com.pixelindia.action.MessageAction" method="msgPageDisplay">
+			<result name="MESSAGEPAGEVIEW">/Message.jsp</result>
+		</action>
+				
+		<action name="message" class="com.pixelindia.action.MessageAction" method="addmessageRecord">
+			<result name="REGREPLY">/Messagesent.jsp</result>
+			<result name="input">/Message.jsp</result>
+		</action>
+		<action name="displayalluser" class="com.pixelindia.action.DisplayAllUserAction">
+			<result name="DISPLAYALLUSER">/DisplayAllUser.jsp</result>
+		</action>
+		  <action name="deleteuser" class="com.pixelindia.action.DeleteUserAction">
+			<result name="DELETEUSER" type="chain">displayalluser</result>
+		</action>
+		<action name="displayallphotographer" class="com.pixelindia.action.DisplayAllUserAction" method="displayclient">
+			<result name="DISPLAYALLP">/DisplayAllP.jsp</result>
+		</action>
+		<action name="bookphotographerinput" class="com.pixelindia.action.PhotographerBookingAction" method="bkPageDisplay">
+			<result name="BOOKINGPAGEVIEW">/BookPhotographer.jsp</result>
+		</action>
+		<action name="bookphotographer" class="com.pixelindia.action.PhotographerBookingAction" method="addBookingRecord">
+			<result name="BKREPLY">/BookPhotographer.jsp</result>
+			<result name="input">/BookPhotographer.jsp</result>
+		</action>
+		<action name="viewprofile" class="com.pixelindia.action.SearchPhotographerAction" method="searchPhotographer">
+			<result name="PHOTOGRAPHERFOUND">/ViewPhotographerProfile.jsp</result>
+		</action>
+		<action name="viewbooking" class="com.pixelindia.action.ViewBookingAction" method="searchMeeting">
+			<result name="DATAFOUND">/ViewBooking.jsp</result>
+			<result name="DATANOTFOUND">/ViewPhotographerProfile.jsp</result>
+		</action>
+		<action name="searchcategoryinput" class="com.pixelindia.action.SearchCategoryAction" method="searchPageDisplay">
+			<result name="SEARCHPAGEVIEW">/CategorySearchInput.jsp</result>
+		</action>
+		<action name="searchphotographer" class="com.pixelindia.action.SearchCategoryAction" method="searchCategory">
+			<result name="USERFOUND">/DisplayByCategory.jsp</result>
+			<result name="USERNOTFOUND">/CategorySearchInput.jsp</result>
+			<result name="input">/CategorySearchInput.jsp</result>
+		</action>
+		<action name="viewmessage" class="com.pixelindia.action.ViewMessageAction">
+			<result name="DISPLAYALLMESSAGE">/ViewMessage.jsp</result>
+		</action>
+		</package>
+</struts>
